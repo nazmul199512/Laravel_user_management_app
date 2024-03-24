@@ -53,15 +53,19 @@ class UserServiceTest extends TestCase
     }
 
     public function test_restore_user()
-    {
-        $user = User::factory()->create();
-        $user->delete();
+{
+    $user = User::factory()->create();
+    $user->delete();
 
-        $userService = new UserService();
-        $userService->restoreUser($user->id);
+    $this->assertTrue($user->trashed());
 
-        $this->assertFalse($user->trashed());
-    }
+    $userService = new UserService();
+    $userService->restoreUser($user->id);
+
+    $restoredUser = User::withTrashed()->find($user->id);
+
+    $this->assertFalse($restoredUser->trashed());
+}
 
     public function test_force_delete_user()
     {
