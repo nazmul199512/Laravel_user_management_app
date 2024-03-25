@@ -39,7 +39,7 @@ php artisan db:seed
 ```
 
 
-## Unit Test
+## Unit Testing
 ```bash
 php artisan test
 ```
