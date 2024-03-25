@@ -1,12 +1,11 @@
-# Project Name
+# Laravel_user_management_app
 
-Description of your project.
 
 ## Table of Contents
 - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+- [Seeding](#seeding)
+- [Unit Testing](#unit-testing)
+- [Credentials](#credentials)
 
 ## Installation
 ### Prerequisites
@@ -33,5 +32,18 @@ Description of your project.
     php artisan key:generate
     ```
 
+## Seeding
+To seed the database with default data, including an example user (e.g., Admin), run the following command:
+```bash
+php artisan db:seed
+```
 
+
+## Unit Test
+```bash
+php artisan test
+```
+## Credentials
+Email: admin@example.com
+Password: 12345678
 
