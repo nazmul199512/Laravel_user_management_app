@@ -31,6 +31,10 @@
     ```bash
     php artisan key:generate
     ```
+6. Run migrations to set up the database schema:
+    ```bash
+    php artisan migrate
+    ```
 
 ## Seeding
 To seed the database with default data, including an example user (e.g., Admin), run the following command:
