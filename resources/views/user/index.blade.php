@@ -22,6 +22,7 @@
                     <!-- Redirect button to user create page -->
                     <a href="{{ route('users.create') }}" class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">{{ __('Create User') }}</a>
                     <a href="{{ route('users.deleted') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">{{ __('Soft Deleted Users') }}</a>
+                    <a href="{{ route('user.address.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">{{ __('Add User Address') }}</a>
 
                 </div>
             </div>
@@ -34,6 +35,7 @@
                             <tr class="dark:text-gray-400 dark:bg-gray-800">
                                 <th class="px-6 py-3 border-b border-gray-200 dark:border-gray-700 text-left text-xs font-medium uppercase tracking-wider">{{ __('Name') }}</th>
                                 <th class="px-6 py-3 border-b border-gray-200 dark:border-gray-700 text-left text-xs font-medium uppercase tracking-wider">{{ __('Email') }}</th>
+                                <th class="px-6 py-3 border-b border-gray-200 dark:border-gray-700 text-left text-xs font-medium uppercase tracking-wider">{{ __('Addresses') }}</th>
                                 <th class="px-6 py-3 border-b border-gray-200 dark:border-gray-700 text-left text-xs font-medium uppercase tracking-wider">{{ __('Actions') }}</th>
                                 <th class="px-6 py-3 border-b border-gray-200 dark:border-gray-700 text-left text-xs font-medium uppercase tracking-wider">{{ __('View') }}</th>
                             </tr>
@@ -43,6 +45,13 @@
                                 <tr>
                                     <td class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">{{ $user->name }}</td>
                                     <td class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">{{ $user->email }}</td>
+                                    <td class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+                                        <ul>
+                                            @foreach($user->addresses as $address)
+                                                <li>{{ $address->address }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </td>
                                     <td class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
                                         <div class="flex">
                                             <a href="{{ route('users.edit', $user) }}" class="text-blue-500 hover:text-blue-700 mr-2">{{ __('Edit') }}</a>

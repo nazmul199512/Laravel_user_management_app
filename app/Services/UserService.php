@@ -8,10 +8,7 @@ use Illuminate\Support\Facades\Hash;
 class UserService implements UserServiceInterface
 {
     public function createUser(array $userData)
-    {
-        // Validate input if necessary
-        
-        // Hash the password
+    {        
         $userData['password'] = Hash::make($userData['password']);
 
         return User::create($userData);
@@ -19,10 +16,8 @@ class UserService implements UserServiceInterface
 
     public function updateUser(User $user, array $userData)
     {
-        // Validate input if necessary
         
         if (isset($userData['password'])) {
-            // Hash the password
             $userData['password'] = Hash::make($userData['password']);
         }
 
@@ -33,10 +28,7 @@ class UserService implements UserServiceInterface
 
     public function deleteUser(User $user)
     {
-        $user->delete();
-
-        // Additional logic if needed
-        
+        $user->delete();        
         return true;
     }
 

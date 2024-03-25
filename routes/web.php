@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserAddressController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,11 @@ Route::middleware('auth')->group(function () {
     Route::resource('users', UserController::class);
     Route::post('users/{user_id}/restore', [UserController::class, 'restore'])->name('users.restore');
     Route::delete('users/{user_id}/force-delete', [UserController::class, 'forceDelete'])->name('users.forceDelete');
+
+    //User Address
+    Route::get('user-address-create', [UserAddressController::class, 'create'])->name('user.address.create');
+    Route::post('user-address-store', [UserAddressController::class, 'store'])->name('user.address.store');
+
 
 });
 
